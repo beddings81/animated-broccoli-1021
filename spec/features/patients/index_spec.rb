@@ -24,4 +24,13 @@ RSpec.describe 'patients index page' do
 
     expect(page).to_not have_content(@patient4.name)
   end
+
+  it 'list the patient names alphabetically' do
+    expect(@patient1.name).to appear_before(@patient5.name)
+    expect(@patient5.name).to appear_before(@patient2.name)
+    expect(@patient2.name).to appear_before(@patient3.name)
+
+    expect(@patient2.name).to appear_before(@patient1.name)
+    expect(@patient3.name).to appear_before(@patient5.name)
+  end
 end
