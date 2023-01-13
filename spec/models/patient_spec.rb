@@ -29,5 +29,11 @@ RSpec.describe Patient, type: :model do
         expect(Patient.adult_patients).to_not include(@patient4)
       end
     end
+
+    describe '#sort_alpha' do
+      it 'list all patients alphabetically' do
+        expect(Patient.sort_alpha).to eq([@patient4, @patient1, @patient5, @patient2, @patient3])
+      end
+    end
   end
 end
