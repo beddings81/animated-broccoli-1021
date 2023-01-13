@@ -6,4 +6,11 @@ class Doctor < ApplicationRecord
   def patient_count
     self.patients.size
   end
+
+  def self.sort_by_patient_count
+    self.joins(:doctor_patients)
+    .select('doctors.*, count(doctor_patients) as patient_count')
+    .group(:id)
+    .order('patient_count desc')
+  end
 end
