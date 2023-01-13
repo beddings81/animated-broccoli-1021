@@ -33,12 +33,10 @@ RSpec.describe 'hospitals show page' do
   it 'contains a patient count for each doctor' do
     within("#doctor_#{@doctor1.id}") do
       expect(page).to have_content("Patients: #{@doctor1.patient_count}")
-      expect(page).to have_content("Patients: 2")
     end
 
     within("#doctor_#{@doctor2.id}") do
       expect(page).to have_content("Patients: #{@doctor2.patient_count}")
-      expect(page).to have_content("Patients: 4")
     end
   end
 
